@@ -1,0 +1,43 @@
+.chat-user-name {
+    height: 1rem;
+}
+
+.chat-online-status {
+    padding: 0.5rem 0;
+    &-connected {
+        color: #00ac00;
+    }
+
+    &-disconnected {
+        color: #da0000;
+    }
+}
+
+.chat-online-users {
+    .chat-online-user-item {
+        cursor: pointer;
+    }
+
+    .chat-online-user-item:hover {
+        background-color: darken(#fff, 1%);
+    }
+}
+
+.message-unread-counter {
+    margin-left: 0.5rem;
+}
+
+.custom-card-header {
+    padding: 0.5rem;
+}
+
+.chat-online-card-header, .chat-offline-card-header {
+    i {
+        font-size: 1.2rem;
+    }
+
+    .show-hide-icon {
+        cursor: pointer;
+        color: #4d576d;
+    }
+}

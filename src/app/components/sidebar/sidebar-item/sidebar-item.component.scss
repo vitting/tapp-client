@@ -1,0 +1,23 @@
+@import "../_variables";
+
+li {
+    line-height: 2rem;
+    padding: 0 0.5rem;
+    cursor: pointer;
+
+    &:hover {
+        background-color: darken($sidebar-bg-color, 5%);
+    }
+}
+
+a {
+    color: $sidebar-menu-item-color;
+    text-decoration: none;
+
+    &.active,
+    &:hover {
+        color: $sidebar-menu-item-active-color;
+    }
+}
+
+

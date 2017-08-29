@@ -1,0 +1,39 @@
+<div class="chat-online-status d-flex justify-content-end">
+    <div>
+        <span>{{chatStatusText}}</span>
+        <i class="fa fa-circle"
+           [ngClass]="{'chat-online-status-connected': chatStatus,'chat-online-status-disconnected': !chatStatus}"
+           aria-hidden="true"></i>
+    </div>
+</div>
+<div id="online-users-container" class="card" *ngIf="chatUsersOnline.length">
+    <div class="card-header chat-online-card-header d-flex justify-content-between">
+        <div>Online <span class="badge badge-pill badge-secondary ml-1">{{onlineUserCount}}</span></div>
+        <div (click)="_utilityService.showHideWindow('online-users-container')"><i
+            class="show-hide-icon fa fa-minus-square" aria-hidden="true"></i></div>
+    </div>
+    <div class="show-hide-container show">
+        <ul class="chat-online-users list-group list-group-flush">
+            <li [id]="'counter_' + onUser.id" (click)="startChatWith(onUser)"
+                class="list-group-item chat-online-user-item"
+                *ngFor="let onUser of chatUsersOnline"><span class="">{{onUser.name}}</span><span
+                class="badge badge-pill badge-secondary message-unread-counter"></span></li>
+        </ul>
+    </div>
+</div>
+<div id="offline-users-container" class="card" *ngIf="chatUsersOffline.length">
+    <div class="card-header chat-offline-card-header d-flex justify-content-between">
+        <div>Offline <span class="badge badge-pill badge-secondary ml-1">{{offlineUserCount}}</span></div>
+        <div (click)="_utilityService.showHideWindow('offline-users-container')"><i
+            class="show-hide-icon fa fa-minus-square"
+            aria-hidden="true"></i></div>
+    </div>
+    <div class="show-hide-container show">
+        <ul class="chat-online-users list-group list-group-flush">
+            <li [id]="'counter_' + offUser.id" (click)="startChatWith(offUser)"
+                class="list-group-item chat-online-user-item" *ngFor="let offUser of chatUsersOffline"><span class="">{{offUser.name}}</span><span
+                class="badge badge-pill badge-secondary message-unread-counter"></span></li>
+        </ul>
+    </div>
+</div>
+

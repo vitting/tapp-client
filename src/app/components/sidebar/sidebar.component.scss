@@ -1,0 +1,87 @@
+@import "variables";
+
+#sidebarOverlay {
+    top: 0;
+    left: 0;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: $sidebar-overlay-bg-color;
+    opacity: 0.5;
+    z-index: 999;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: $sidebar-width;
+    background-color: $sidebar-bg-color;
+    overflow: hidden;
+    z-index: 1000;
+    border-right: 1px solid darken($sidebar-bg-color, 10%);
+    display: none;
+
+    &-header {
+        margin: 0.8rem 0.8rem 0.8rem 0;
+        font-size: $sidebar-close-icon-size;
+        color: $sidebar-menu-item-color;
+        cursor: pointer;
+
+        //Sidebar close icon
+        a {
+            color: $sidebar-menu-item-color;
+        }
+
+        a:hover {
+            color: $sidebar-menu-item-active-color;
+        }
+    }
+
+    &-title {
+        margin: 1rem;
+        color: $sidebar-text-color;
+        cursor: none;
+    }
+
+    &-body {
+        ul {
+            padding: 0 0.5rem;
+            list-style: none;
+            margin: 1rem 0 0;
+        }
+    }
+}
+
+.slideOut {
+    display: block;
+    animation-duration: $sidebar-animation-duration;
+    animation-name: slideOut;
+    animation-fill-mode: forwards;
+}
+
+.slideIn {
+    display: block;
+    animation-duration: $sidebar-animation-duration;
+    animation-name: slideIn;
+    animation-fill-mode: forwards;
+}
+
+@keyframes slideOut {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes slideIn {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0%);
+    }
+}

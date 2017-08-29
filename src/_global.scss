@@ -1,0 +1,155 @@
+@import "variables";
+
+@font-face {
+    font-family: NotoSans;
+    src: url("assets/fonts/Noto_Sans/NotoSans-Regular.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Open Sans";
+    src: url("assets/fonts/Open_Sans/OpenSans-Regular.ttf") format("truetype");
+}
+
+html, body {
+    font-family: "Open Sans", -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+body {
+    margin-bottom: 2rem;
+}
+
+.required::after {
+    font-size: 0.8rem;
+    content: " *";
+    color: #ff0000;
+}
+
+.input-group-addon {
+    background-color: #fff;
+}
+
+.form-control-no-right-border {
+    border-right: none;
+}
+
+.btn-round {
+    border-radius: 50%;
+    border: none;
+    width: 3rem;
+    height: 3rem;
+    background-color: $btn-round-bg-color;
+    font-size: 1.5rem;
+    cursor: pointer;
+
+    &:focus {
+        outline: none;
+    }
+
+    &:hover, &:focus {
+        background-color: $btn-round-active-color;
+    }
+
+    &[disabled] {
+        background-color: $disabled-bg-color;
+        color: $disabled-text-color;
+        cursor: not-allowed;
+    }
+
+    &.menu-active {
+        background-color: $btn-round-active-color;
+    }
+}
+
+.btn-round-white {
+    color: #fff
+}
+
+/*custom-modal-footer = bootstap modal custom*/
+.modal-footer-custom {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: center;
+    justify-content: center;
+    padding: 15px;
+    border-top: 1px solid $modal-footer-border-color;
+}
+
+.task-item-container {
+    cursor: pointer;
+}
+
+.task-item-body {
+    max-height: 4.5rem;
+    overflow: hidden;
+}
+
+.task-accepted {
+    background-color: $task-accepted-bg-color;
+}
+
+.badge-custom {
+    margin-left: 0.5rem;
+}
+
+.calendar-navigation {
+    width: 10rem;
+    padding: 0;
+}
+
+/*cal-cell = angular-calendar override*/
+.calendar-title, .cal-cell {
+    text-transform: capitalize;
+}
+
+.calanedar-header {
+    margin: 1rem 1rem 0.5rem 1rem;
+}
+
+.calendar-container {
+    margin: 1rem 0
+}
+
+.cal-month-view {
+    .cal-day-selected, .cal-day-selected:hover {
+        background-color: $selected-bg-color !important;
+
+        .cal-day-number {
+            color: $selected-text-color !important;
+            opacity: 1 !important;
+        }
+    }
+
+    .cal-event {
+        display: none !important;
+    }
+
+    .cal-day-badge {
+        background-color: lighten($selected-bg-color, 20) !important;
+    }
+
+    .cal-day-cell.cal-today {
+        background-color: #ffe67a !important;
+    }
+
+    .cal-today .cal-day-number {
+        font-size: 1.2em !important;
+    }
+}
+
+.component-title {
+    margin: 1rem 0;
+}
+
+.message-item {
+    padding: 1rem;
+    border-bottom: 1px solid lightgrey;
+}
+

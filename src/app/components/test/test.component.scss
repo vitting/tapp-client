@@ -1,0 +1,85 @@
+.chat-user-name {
+    height: 1rem;
+}
+
+.chat-online-status {
+    &-connected {
+        color: #00ac00;
+    }
+
+    &-disconnected {
+        color: #da0000;
+    }
+}
+
+.chat-online-users {
+    .chat-online-user-item {
+        cursor: pointer;
+    }
+
+    .chat-online-user-item:hover {
+        background-color: darken(#fff, 1%);
+    }
+}
+
+.chat-messages-user-header {
+    cursor: pointer;
+}
+
+.chat-messages {
+    max-height: 20rem;
+    overflow: auto;
+
+    .chat-message {
+        margin-bottom: 1rem;
+        border-bottom: 1px solid lavender;
+
+        .chat-message-user-name, .chat-message-time {
+            font-size: 0.8rem;
+        }
+
+        .chat-message-user-name {
+            background-color: #4d576d;
+            color: #fff;
+            border-radius: 4px;
+            padding: 0 0.3rem;
+        }
+
+        .chat-message-time {
+            margin-right: 0.3rem;
+            font-style: italic;
+        }
+
+        .chat-message-user-name.chat-name-me {
+            background-color: #f69c00;
+            margin-right: 0.3rem;
+        }
+
+        .chat-message-text {
+            font-size: 0.9rem;
+            padding: 0.5rem;
+        }
+    }
+
+    .chat-message:last-child {
+        border-bottom: none;
+    }
+
+}
+.chat-messages::-webkit-scrollbar {
+    background-color: #d3d3d3;
+    width: 0.5rem;;
+}
+
+.chat-messages::-webkit-scrollbar-thumb {
+    background-color: #9f9f9f;
+}
+
+.chat-message-input {
+    input {
+        width: 90%;
+        font-size: 1rem;
+    }
+}
+
+

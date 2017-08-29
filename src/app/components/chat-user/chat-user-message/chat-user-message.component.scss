@@ -1,0 +1,34 @@
+.chat-message {
+    margin-bottom: 1rem;
+    border-bottom: 1px solid lavender;
+
+    .chat-message-user-name, .chat-message-time {
+        font-size: 0.8rem;
+    }
+
+    .chat-message-user-name {
+        background-color: #4d576d;
+        color: #fff;
+        border-radius: 4px;
+        padding: 0 0.3rem;
+    }
+
+    .chat-message-time {
+        margin-right: 0.3rem;
+        font-style: italic;
+    }
+
+    .chat-message-user-name.chat-name-me {
+        background-color: #f69c00;
+        margin-right: 0.3rem;
+    }
+
+    .chat-message-text {
+        font-size: 0.9rem;
+        padding: 0.5rem;
+    }
+}
+
+.chat-message:last-child {
+    border-bottom: none;
+}

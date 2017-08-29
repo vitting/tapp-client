@@ -1,0 +1,33 @@
+.chat-messages-users-container {
+    margin-bottom: 0.3rem;
+    .chat-messages-user-header {
+        cursor: pointer;
+    }
+
+    .chat-messages-user-close {
+        cursor: pointer;
+        font-size: 1.2rem;
+    }
+
+    .chat-messages::-webkit-scrollbar {
+        background-color: #d3d3d3;
+        width: 0.5rem;;
+    }
+
+    .chat-messages::-webkit-scrollbar-thumb {
+        background-color: #9f9f9f;
+    }
+
+    .chat-message-input {
+        input {
+            width: 90%;
+            font-size: 1rem;
+        }
+    }
+
+    .chat-messages {
+        max-height: 20rem;
+        min-height: 10rem;
+        overflow: auto;
+    }
+}

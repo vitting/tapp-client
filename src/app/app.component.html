@@ -1,0 +1,17 @@
+<app-navbar (sidebarShow)="showSidebar()"></app-navbar>
+<app-sidebar (sidebarHide)="hideSidebar()" [show]="sidebarShow">
+    <app-sidebar-item [hide]="!isAuthenticated" [routerLink]="['/home']"><i class="fa fa-home mr-2"></i>Forsiden</app-sidebar-item>
+    <app-sidebar-item [hide]="!isAuthenticated" [routerLink]="['/chat']"><i class="fa fa-comments mr-2"></i>Chat</app-sidebar-item>
+    <app-sidebar-item [hide]="!isAuthenticated" [routerLink]="['/settings']"><i class="fa fa-cog mr-2"></i> Indstillinger</app-sidebar-item>
+    <app-sidebar-item [hide]="isAuthenticated" [routerLink]="['/login']"><i class="fa fa-sign-in mr-2"></i> Log ind</app-sidebar-item>
+    <app-sidebar-item [staticItem]="true" [hide]="!isAuthenticated && !isAdmin">Administration</app-sidebar-item>
+    <app-sidebar-item [hide]="!isAuthenticated && !isAdmin" [routerLink]="['/admin/employees']"><i class="fa fa-users mr-2"></i> Medarbejer</app-sidebar-item>
+    <app-sidebar-item [hide]="!isAuthenticated && !isAdmin" [routerLink]="['/admin/customers']"><i class="fa fa-address-book mr-2"></i> Kunder</app-sidebar-item>
+    <app-sidebar-item [hide]="!isAuthenticated && !isAdmin" [routerLink]="['/admin/tasks']"><i class="fa fa-tasks mr-2"></i> Opgaver</app-sidebar-item>
+</app-sidebar>
+<div class="container-fluid">
+    <app-flash-message></app-flash-message>
+    <div class="mt-2">
+        <router-outlet></router-outlet>
+    </div>
+</div>

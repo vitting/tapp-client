@@ -1,0 +1,34 @@
+<div [id]="userId" class="chat-messages-users-container" *ngIf="user">
+    <div class="chat-message-users-item">
+        <div class="card">
+            <div class="card-header">
+                <div class="mb-0">
+                    <div class="d-flex justify-content-between align-content-center">
+                        <a [href]="" class="chat-messages-user-header" (click)="_utilityService.showHideWindow(user?.id)">
+                            {{user?.name}}
+                        </a>
+                        <div class="chat-messages-user-close">
+                            <a [href]="" (click)="close()"><i class="fa fa-times-circle" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="show-hide-container show">
+                <div class="card-block">
+                    <div class="chat-messages">
+                        <div class="chat-messages-overflow">
+                            <app-chat-user-message *ngFor="let message of messages" [message]="message" [user]="user" [myInfo]="myInfo" (messageCreated)="messageCreated($event)"></app-chat-user-message>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="chat-message-input d-flex justify-content-between">
+                        <input type="text" class="message-input" title="Skriv besked" [(ngModel)]="message">
+                        <button type="button" class="btn-round btn-round-white ml-3" (click)="sendNewMessage()"><i class="fa fa-envelope"
+                                                                                        aria-hidden="true"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,60 @@
+<form [formGroup]="employeesForm" (ngSubmit)="submitForm()" novalidate>
+    <div class="form-group">
+        <label for="firstName" [ngClass]="{required: showRequired}">Fornavn</label>
+        <input id="firstName" name="firstName" type="text" class="form-control" formControlName="firstName">
+    </div>
+    <div class="form-group">
+        <label for="lastName" [ngClass]="{required: showRequired}">Efternavn</label>
+        <input id="lastName" name="lastName" type="text" class="form-control" formControlName="lastName">
+    </div>
+    <div formGroupName="address">
+        <div class="form-group">
+            <label for="street" [ngClass]="{required: showRequired}">Gade</label>
+            <div class="input-group">
+                <input id="street" name="street" type="text" class="form-control" formControlName="street" [ngbTypeahead]="search" [resultTemplate]="rt" [inputFormatter]="formatter" (selectItem)="streetSelected($event)">
+                <div class="input-group-addon" *ngIf="streetLoading" >
+                    <i class="fa fa-spinner fa-pulse fa-fw" aria-hidden="true"></i>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="zipCode" [ngClass]="{required: showRequired}">Postnr.</label>
+            <input id="zipCode" name="zipCode" type="text" class="form-control" formControlName="zipCode">
+        </div>
+        <div class="form-group">
+            <label for="city" [ngClass]="{required: showRequired}">By</label>
+            <input id="city" name="city" type="text" class="form-control" formControlName="city">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="mail" [ngClass]="{required: showRequired}">E-mail</label>
+        <input id="mail" name="mail" type="text" class="form-control" formControlName="mail">
+    </div>
+    <div class="form-group">
+        <label for="mobilePhone" [ngClass]="{required: showRequired}">Mobil</label>
+        <input id="mobilePhone" name="mobilePhone" type="text" class="form-control" formControlName="mobilePhone">
+    </div>
+    <div class="form-group">
+        <label for="username" [ngClass]="{required: showRequired}">Brugernavn</label>
+        <input id="username" name="username" type="text" class="form-control" formControlName="username">
+    </div>
+    <div class="form-group" *ngIf="showPasswordInput">
+        <label for="password" [ngClass]="{required: showRequired}">Kodeord</label>
+        <div class="input-group">
+            <input id="password" name="password" [type]="passwordInputType" class="form-control"
+                   formControlName="password">
+            <span class="input-group-btn" *ngIf="showGeneratePassword">
+                <button class="btn btn-secondary" type="button" (click)="generatePassword()" title="Lav nyt kodeord"><i
+                    class="fa fa-key" aria-hidden="true"></i></button>
+            </span>
+        </div>
+    </div>
+    <div>
+        <button *ngIf="!showDeleteButton" type="submit" class="btn-round"><i class="fa fa-floppy-o" aria-hidden="true"></i></button>
+        <app-two-step-submit *ngIf="showDeleteButton" (accept)="submitForm()"></app-two-step-submit>
+    </div>
+</form>
+
+<ng-template #rt let-r="result" let-t="term">
+    {{ r | dawaAddressFormatter}}
+</ng-template>

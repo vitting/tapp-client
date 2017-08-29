@@ -1,0 +1,42 @@
+<div class="calendar-container">
+    <div class="calanedar-header d-flex justify-content-between">
+        <div class="calendar-title align-self-center">
+            <h2>{{ viewDate | calendarDate:(view + 'ViewTitle'):'dk' }}</h2>
+        </div>
+        <div class="calendar-navigation d-flex justify-content-between">
+            <button
+                class="btn-round"
+                mwlCalendarPreviousView
+                [(viewDate)]="viewDate"
+                [view]="view"
+                (viewDateChange)="viewChange($event)">
+                <i class="fa fa-arrow-left" aria-hidden="true"></i>
+            </button>
+            <button
+                class="btn-round"
+                mwlCalendarToday
+                [(viewDate)]="viewDate"
+                (viewDateChange)="viewChange($event)">
+                <i class="fa fa-clock-o" aria-hidden="true"></i>
+            </button>
+            <button
+                class="btn-round"
+                mwlCalendarNextView
+                [(viewDate)]="viewDate"
+                [view]="view"
+                (viewDateChange)="viewChange($event)">
+                <i class="fa fa-arrow-right" aria-hidden="true"></i>
+            </button>
+        </div>
+    </div>
+
+    <mwl-calendar-month-view
+        [viewDate]="viewDate"
+        [locale]="locale"
+        [weekStartsOn]="weekStartsOn"
+        [activeDayIsOpen]="activeDayIsOpen"
+        [events]="events"
+        (dayClicked)="dayClicked($event.day)"
+        (eventClicked)="handleEvent('Clicked', $event.event)">
+    </mwl-calendar-month-view>
+</div>

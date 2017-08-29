@@ -1,0 +1,27 @@
+<div class="modal fade" [id]="modalName" tabindex="-1" role="dialog" aria-labelledby="Task description"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title">
+                    <h6>{{taskData?.time}}</h6>
+                    <h6>{{taskData?.title}}</h6>
+                    <h6>{{taskData?.address}}</h6>
+                </div>
+                <div>
+                    <button *ngIf="showCloseBtn" type="button" class="btn-round" (click)="closeModal(taskData.taskId)">
+                        <i class="fa fa-times" aria-hidden="true"></i></button>
+                </div>
+            </div>
+            <div class="modal-body modal-body-custom">
+                {{taskData?.description}}
+            </div>
+            <div *ngIf="showSaveBtn" class="modal-footer-custom">
+                <div>
+                    <button type="button" class="btn-round" (click)="saveModal(taskData.taskId)"><i
+                        class="fa fa-check" aria-hidden="true"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

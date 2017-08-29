@@ -1,0 +1,70 @@
+<form [formGroup]="tasksForm" (ngSubmit)="submitForm()" novalidate>
+    <div class="form-group">
+        <label for="startDate" [ngClass]="{required: showRequired}">Dato</label>
+        <div class="input-group">
+            <input id="startDate" class="form-control" placeholder="yyyy-mm-dd" name="startDate" ngbDatepicker #d="ngbDatepicker">
+            <div class="input-group-addon" (click)="d.toggle()" >
+                <i class="fa fa-calendar"></i>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="startTime" [ngClass]="{required: showRequired}">Tid</label>
+        <div >
+            <div class="row align-items-center">
+                <div class="col-1 offset-1">
+                    <label for="startTime">Fra</label>
+                </div>
+                <div class="col-10">
+                    <ngb-timepicker id="startTime" formControlName="startTime"></ngb-timepicker>
+                </div>
+
+            </div>
+            <div class="row align-items-center">
+                <div class="col-1 offset-1">
+                    <label for="endTime">Til</label>
+                </div>
+                <div class="col-10">
+                    <ngb-timepicker id="endTime" formControlName="endTime"></ngb-timepicker>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div formGroupName="address">
+        <div class="form-group">
+            <label for="street" [ngClass]="{required: showRequired}">Gade</label>
+            <div class="input-group">
+                <input id="street" name="street" type="text" class="form-control" formControlName="street" [ngbTypeahead]="search" [resultTemplate]="rt" [inputFormatter]="formatter" (selectItem)="streetSelected($event)">
+                <div class="input-group-addon" *ngIf="streetLoading">
+                    <i class="fa fa-spinner fa-pulse fa-fw" aria-hidden="true"></i>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="zipCode" [ngClass]="{required: showRequired}">Postnr.</label>
+            <input id="zipCode" name="zipCode" type="text" class="form-control" formControlName="zipCode">
+        </div>
+        <div class="form-group">
+            <label for="city" [ngClass]="{required: showRequired}">By</label>
+            <input id="city" name="city" type="text" class="form-control" formControlName="city">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="description" [ngClass]="{required: showRequired}">Opgave beskrivelse</label>
+        <textarea class="form-control" name="desciption" id="description" rows="10" formControlName="description"></textarea>
+    </div>
+    <div class="form-group">
+        <label for="employeesAssigned">Medarbejdere</label>
+        <div id="employeesAssigned" class="form-control">
+
+        </div>
+    </div>
+    <div>
+        <button *ngIf="!showDeleteButton" type="submit" class="btn-round"><i class="fa fa-floppy-o" aria-hidden="true"></i></button>
+        <app-two-step-submit *ngIf="showDeleteButton" (accept)="submitForm()"></app-two-step-submit>
+    </div>
+</form>
+
+<ng-template #rt let-r="result" let-t="term">
+    {{ r | dawaAddressFormatter}}
+</ng-template>

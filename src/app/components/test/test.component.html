@@ -1,0 +1,7 @@
+<div class="row">
+    <div class="col-md-6 d-flex justify-content-between">
+        <button *ngIf="showButton1" type="submit" class="btn-round" (click)="preAccept()"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+        <span *ngIf="showButton2" class="ml-3 mr-3">er du sikker?</span>
+        <button *ngIf="showButton2" type="submit" class="btn-round" (click)="postAccept()"><i class="fa fa-check" aria-hidden="true"></i></button>
+    </div>
+</div>

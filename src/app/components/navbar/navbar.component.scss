@@ -1,0 +1,36 @@
+@import "variables";
+
+nav {
+    height: $navbar-height;
+    background-color: $navbar-bg-color;
+    padding: 0 1rem;
+
+    a {
+        color: $main-link-text-color-light;
+        font-size: 1.7rem;
+        display: inline-block;
+    }
+
+    a:hover {
+        color: $navbar-active-color;
+        cursor: pointer;
+    }
+
+    .nav-notify-icon {
+        font-size: 1.5rem;
+        color: #fff;
+    }
+
+    .nav-notify {
+        margin: auto;
+        font-size: 0.6rem;
+        border-radius: 50%;
+        border: none;
+        width: 1.2rem;
+        height: 1.2rem;
+        line-height: 1.2rem;
+        text-align: center;
+        background-color: #fff;
+        margin-right: 0.2rem;
+    }
+}

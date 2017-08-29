@@ -1,0 +1,36 @@
+.settings-menu {
+    margin-top: 3.6rem;
+
+    ul {
+        padding: 0 0.5rem;
+        list-style: none;
+        margin: 1rem 0 0;
+        border-right: 1px solid lightgrey;
+
+        li {
+            line-height: 2rem;
+            padding: 0 0.5rem;
+            cursor: pointer;
+            margin: 1rem 0;
+        }
+
+        a {
+            color: #000;
+            text-decoration: none;
+
+            &.active {
+                color: lightgrey;
+            }
+
+            span {
+                margin-left: 1rem;
+            }
+        }
+    }
+}
+
+.active {
+    background-color: lightgrey;
+}
+
+

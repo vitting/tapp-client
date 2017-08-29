@@ -1,0 +1,51 @@
+<div class="row">
+    <div class="col-l-8 col-md-10">
+        <h4 class="d-flex justify-content-center component-title">Profil</h4>
+        <form [formGroup]="profileForm" (ngSubmit)="submit()" novalidate>
+            <div class="form-group">
+                <label for="username">Brugernavn</label>
+                <input id="username" name="username" type="text" class="form-control" formControlName="username">
+            </div>
+            <div class="form-group">
+                <label for="firstName" class="required">Fornavn</label>
+                <input id="firstName" name="firstName" type="text" class="form-control" formControlName="firstName" required>
+            </div>
+            <div class="form-group">
+                <label for="lastName" class="required">Efternavn</label>
+                <input id="lastName" name="lastName" type="text" class="form-control" formControlName="lastName" required>
+            </div>
+            <div formGroupName="address">
+                <div class="form-group">
+                    <label for="street" class="required">Gade</label>
+                    <div class="input-group">
+                        <input id="street" name="street" type="text" class="form-control form-control-no-right-border" formControlName="street" [ngbTypeahead]="search" [resultTemplate]="rt" [inputFormatter]="formatter" (selectItem)="streetSelected($event)" required>
+                        <div class="input-group-addon" *ngIf="streetLoading">
+                            <i class="fa fa-spinner fa-pulse fa-fw" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="zipCode" class="required">Postnr.</label>
+                    <input id="zipCode" name="zipCode" type="text" class="form-control" formControlName="zipCode" required>
+                </div>
+                <div class="form-group">
+                    <label for="city" class="required">By</label>
+                    <input id="city" name="city" type="text" class="form-control" formControlName="city" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="mail" class="required">E-mail</label>
+                <input id="mail" name="mail" type="text" class="form-control" formControlName="mail" required>
+            </div>
+            <div class="form-group">
+                <label for="mobilePhone" class="required">Mobil</label>
+                <input id="mobilePhone" name="mobilePhone" type="text" class="form-control" formControlName="mobilePhone" required>
+            </div>
+            <button type="submit" class="btn-round"><i class="fa fa-floppy-o" aria-hidden="true"></i></button>
+        </form>
+    </div>
+</div>
+
+<ng-template #rt let-r="result" let-t="term">
+    {{ r | dawaAddressFormatter}}
+</ng-template>
